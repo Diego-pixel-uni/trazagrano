@@ -1,12 +1,6 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Mural digital de formulación del proyecto de software TrazaGrano.">
-<meta name="author" content="Diego Alejandro Astudillo Rojas">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Mural TrazaGrano</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Fira+Code:wght@400;600&display=swap">
 <style>/* Mural vivo: notas de colores, bloques grandes y movimiento al bajar por la página. */
@@ -161,8 +155,6 @@ footer{padding-block:0 34px;color:var(--mut);font-size:15px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 
-</head>
-<body>
 <div id="prog" aria-hidden="true"></div>
 <header class="hero"><canvas id="beans" aria-hidden="true"></canvas><div class="wrap inner">
   <div class="kick">Mural digital · Gerencia de Proyectos de Software · Semana 2<br>Diego Alejandro Astudillo Rojas</div>
@@ -186,26 +178,26 @@ footer{padding-block:0 34px;color:var(--mut);font-size:15px}
   <div class="two">
     <div class="stack">
       <h3>La necesidad</h3>
-      <p>Desde el 30 de diciembre de 2026, las empresas grandes y medianas que vendan café en la Unión Europea deben probar que no viene de tierras deforestadas después del 31 de diciembre de 2020. Las micro y pequeñas tienen plazo hasta el 30 de junio de 2027. Para eso piden la ubicación de cada parcela, las fechas de producción y los papeles de legalidad (AGRINFO, s. f.; Preferred by Nature, 2025).</p>
-      <p>La Federación ya tiene los lotes georreferenciados en SICA (El Colombiano, 2024). El hueco está después: cuando la asociación recibe el café y mezcla varias entregas, se puede perder la relación entre el saco y la parcela. Para este proyecto supongo que la asociación lleva ese control en cuadernos o en Excel, y ahí aparece el riesgo de mezcla que el reglamento pide controlar.</p>
+      <p>Desde el 30 de diciembre de 2026, las empresas grandes y medianas que vendan café en la Unión Europea deben probar que no viene de tierras deforestadas después del 31 de diciembre de 2020. Las micro y pequeñas tienen plazo hasta el 30 de junio de 2027. Para eso piden la ubicación de cada parcela, las fechas de producción y los papeles de legalidad.</p>
+      <p>La Federación ya tiene los lotes georreferenciados en SICA. El hueco está después: cuando la asociación recibe el café y mezcla varias entregas, se puede perder la relación entre el saco y la parcela. Para este proyecto supongo que la asociación lleva ese control en cuadernos o en Excel, y ahí aparece el riesgo de mezcla que el reglamento pide controlar.</p>
     </div>
     <div class="note">
       <h3>Sector económico</h3>
       <p>Agropecuario, cadena del café. El proyecto apunta a las asociaciones de pequeños productores que venden a exportadores.</p>
       <ul>
-        <li><b>552.814</b> caficultores y <b>659.850</b> fincas (Gaviria Botero, 2025)</li>
-        <li><b>296.400</b> caficultores con menos de 1 hectárea (Gaviria Botero, 2025)</li>
-        <li><b>26 %</b> de las exportaciones va a Europa, según datos de 2023 (Preferred by Nature, 2025)</li>
-        <li><b>12,65 millones</b> de sacos en el último año cafetero (Diario del Sur, 2026)</li>
+        <li><b>552.814</b> caficultores y <b>659.850</b> fincas</li>
+        <li><b>296.400</b> caficultores con menos de 1 hectárea</li>
+        <li><b>26 %</b> de las exportaciones va a Europa, según datos de 2023</li>
+        <li><b>12,65 millones</b> de sacos en el último año cafetero</li>
       </ul>
     </div>
   </div>
   <div class="three">
-    <div class="note"><h3>Político</h3><p>La UE clasificó a Colombia como país de riesgo estándar y el Gobierno pidió pasar a bajo riesgo (Ministerio de Comercio, Industria y Turismo, 2025). Ese nivel obliga a revisar cada año al menos al 3 % de los operadores (Portafolio, 2025). El reglamento ya se aplazó dos veces, y la revisión de mayo de 2026 confirmó las fechas (Comisión Europea, 2026).</p></div>
-    <div class="note"><h3>Económico</h3><p>La producción bajó cerca de 15 % frente al año anterior (Diario del Sur, 2026). La revaluación quitó alrededor de $700.000 por carga en un año (Agrolatam, 2026). Los márgenes están apretados, así que el costo no puede caer sobre el caficultor.</p></div>
-    <div class="note"><h3>Tecnológico</h3><p>El 56,9 % de los hogares en centros poblados y zonas rurales dispersas tiene internet, contra 73,9 % en todo el país (DPL News, 2026). Por eso la app debe funcionar sin señal en la finca y sincronizar después. El celular es el equipo de trabajo.</p></div>
-    <div class="note"><h3>Ecológico</h3><p>El Gobierno reporta que cerca del 98 % de los lotes de café y cacao está libre de deforestación (Ministerio de Comercio, Industria y Turismo, 2025). Ojo: el EUDR llama bosque a más áreas que el IDEAM (desde 0,5 hectáreas y 10 % de cobertura), así que no basta con la definición colombiana (Preferred by Nature, 2025).</p></div>
-    <div class="note"><h3>Legal</h3><p>Reglamento (UE) 2023/1115: un punto GPS hasta 4 hectáreas, contorno completo si tiene más, y registros guardados 5 años (Parlamento Europeo y Consejo de la Unión Europea, 2023; Preferred by Nature, 2025). En Colombia aplica la Ley 1581 de 2012: el caficultor debe autorizar antes de que sus datos se usen o se compartan (Congreso de Colombia, 2012).</p></div>
+    <div class="note"><h3>Político</h3><p>La UE clasificó a Colombia como país de riesgo estándar y el Gobierno pidió pasar a bajo riesgo. Ese nivel obliga a revisar cada año al menos al 3 % de los operadores. El reglamento ya se aplazó dos veces, y la revisión de mayo de 2026 confirmó las fechas.</p></div>
+    <div class="note"><h3>Económico</h3><p>La producción bajó cerca de 15 % frente al año anterior. La revaluación quitó alrededor de $700.000 por carga en un año. Los márgenes están apretados, así que el costo no puede caer sobre el caficultor.</p></div>
+    <div class="note"><h3>Tecnológico</h3><p>El 56,9 % de los hogares en centros poblados y zonas rurales dispersas tiene internet, contra 73,9 % en todo el país. Por eso la app debe funcionar sin señal en la finca y sincronizar después. El celular es el equipo de trabajo.</p></div>
+    <div class="note"><h3>Ecológico</h3><p>El Gobierno reporta que cerca del 98 % de los lotes de café y cacao está libre de deforestación. Ojo: el EUDR llama bosque a más áreas que el IDEAM (desde 0,5 hectáreas y 10 % de cobertura), así que no basta con la definición colombiana.</p></div>
+    <div class="note"><h3>Legal</h3><p>Reglamento (UE) 2023/1115: un punto GPS hasta 4 hectáreas, contorno completo si tiene más, y registros guardados 5 años. En Colombia aplica la Ley 1581 de 2012: el caficultor debe autorizar antes de que sus datos se usen o se compartan.</p></div>
     <div class="note"><h3>Oportunidad</h3><p>Colombia está bien ubicada frente a otros orígenes porque ya tiene SICA y extensionistas. TrazaGrano no compite con eso: conecta los datos de la parcela con lo que pasa en el punto de acopio.</p></div>
   </div>
   <div class="stack">
@@ -343,7 +335,7 @@ print(validar_parcela(5.2, {&quot;type&quot;: &quot;Point&quot;}))    # Más de 
     <div class="note rolebox">
       <h3>Costo por rol</h3>
       <div class="tw"><table><thead><tr><th>Rol</th><th class="n">Salario mes</th><th class="n">Costo semana</th></tr></thead><tbody><tr><td>Gerente de proyecto</td><td class="n">$7.000.000</td><td class="n">$2.455.385</td></tr><tr><td>Analista y diseñador UX</td><td class="n">$4.200.000</td><td class="n">$1.473.231</td></tr><tr><td>Desarrollador backend sénior</td><td class="n">$5.800.000</td><td class="n">$2.034.462</td></tr><tr><td>Desarrollador móvil</td><td class="n">$4.500.000</td><td class="n">$1.578.462</td></tr><tr><td>Desarrollador web</td><td class="n">$3.600.000</td><td class="n">$1.262.769</td></tr><tr><td>Analista de pruebas</td><td class="n">$3.000.000</td><td class="n">$1.052.308</td></tr><tr><td>Ingeniero DevOps (por horas)</td><td class="n">$5.500.000</td><td class="n">$1.929.231</td></tr><tr><td>Técnico de campo (2 personas)</td><td class="n">$2.800.000</td><td class="n">$982.154</td></tr></tbody></table></div>
-      <p class="src">Salarios estimados con base en promedios publicados (Indeed, 2026). Todos superan el mínimo de 2026, que es $1.750.905 (Consultor Salud, 2025). El costo semanal incluye un factor de 1,52 por prestaciones y aportes (Buk, 2026).</p>
+      <p class="src">Salarios estimados con base en promedios publicados. Todos superan el mínimo de 2026, que es $1.750.905. El costo semanal incluye un factor de 1,52 por prestaciones y aportes.</p>
     </div>
   </div>
 </section>
@@ -519,7 +511,7 @@ if __name__ == &quot;__main__&quot;:
     <div class="note">
       <h3>Cuenta rápida de sostenibilidad</h3>
       <p>Si la inversión se recupera en 3 años y la operación cuesta unos $70 millones al año (valor estimado), el proyecto necesita cerca de $161 millones anuales.</p>
-      <p>Con 40 asociaciones de 300 productores, eso da $335.000 al mes por asociación. Equivale a unos $13.400 por productor al año, cerca del 0,6 % de una carga de café, que en abril de 2026 promedió $2.229.900 (Federación Nacional de Cafeteros, 2026).</p>
+      <p>Con 40 asociaciones de 300 productores, eso da $335.000 al mes por asociación. Equivale a unos $13.400 por productor al año, cerca del 0,6 % de una carga de café, que en abril de 2026 promedió $2.229.900.</p>
       <p>Con una sola asociación no se paga. El proyecto tiene sentido como servicio compartido.</p>
     </div>
     <div class="stack">
@@ -544,7 +536,7 @@ if __name__ == &quot;__main__&quot;:
   </div>
   <div class="note">
     <h3>Video para ampliar</h3>
-    <p>En la página de recursos del Acuerdo Café, Bosque y Clima está el video “Puentes para el cumplimiento”, un diálogo entre empresas y la UE sobre el EUDR en Colombia (Acuerdo Café, Bosque y Clima, s. f.). <a href="https://acuerdocafebosqueyclima.com/recursos/" rel="noopener">Abrir recursos y videos</a></p>
+    <p>En la página de recursos del Acuerdo Café, Bosque y Clima está el video “Puentes para el cumplimiento”, un diálogo entre empresas y la UE sobre el EUDR en Colombia. <a href="https://acuerdocafebosqueyclima.com/recursos/" rel="noopener">Abrir recursos y videos</a></p>
   </div>
 </section>
 
@@ -645,5 +637,4 @@ if(!calm){var t=$('#synct'),bar=$('#syncb'),st=0;setInterval(function(){st=(st+1
  else{t.textContent='Sin señal · 3 registros por sincronizar';bar.style.transition='none';bar.style.transform='scaleX(0)';setTimeout(function(){bar.style.transition='';},60);}},2600);}
 })();
 </script>
-</body>
-</html>
+</body></html>
