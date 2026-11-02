@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Mural digital de formulación del proyecto de software TrazaGrano.">
+<meta name="author" content="Diego Alejandro Astudillo Rojas">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Mural TrazaGrano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Fira+Code:wght@400;600&display=swap">
+<style>/* Mural vivo: notas de colores, bloques grandes y movimiento al bajar por la página. */
+:root{--bg:#f1f6f3;--sur:#ffffff;--sur2:#e8f1ec;--ink:#0d1f18;--mut:#4d6158;--line:#d5e2db;
+--green:#00a56f;--coral:#f4304f;--sun:#ffc21f;--sky:#1687f2;--grape:#7a4df0;--leaf:#00855a;--cherry:#d91f3f;--parch:#a86a00;
+--n1:#c9f4e1;--n2:#ffdce2;--n3:#ffefb5;--n4:#d4e9ff;--n5:#e6dcff;
+--hero:#062d21;--herofg:#f3fff9;--code:#0b1a14;--codefg:#dcf5e9;
+--f1:#00a56f;--f2:#1687f2;--f3:#f4304f;--f4:#e7a800;--f5:#7a4df0;--f6:#55706a;--c:var(--green);
+--disp:"Unbounded","Arial Black",sans-serif;--body:"DM Sans","Segoe UI",sans-serif;--mono:"Fira Code",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08110d;--sur:#101c17;--sur2:#1a2a23;--ink:#ecf8f2;--mut:#a2b8ae;--line:#284036;--leaf:#3fd6a0;--cherry:#ff7c91;--parch:#ffcf5c;--n1:#10392b;--n2:#46202a;--n3:#3f3414;--n4:#14304b;--n5:#2c2350;--code:#050c09;--f1:#22c98f;--f2:#4eaaff;--f3:#ff617b;--f4:#ffc92e;--f5:#a388ff;--f6:#8ca69c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#08110d;--sur:#101c17;--sur2:#1a2a23;--ink:#ecf8f2;--mut:#a2b8ae;--line:#284036;--leaf:#3fd6a0;--cherry:#ff7c91;--parch:#ffcf5c;--n1:#10392b;--n2:#46202a;--n3:#3f3414;--n4:#14304b;--n5:#2c2350;--code:#050c09;--f1:#22c98f;--f2:#4eaaff;--f3:#ff617b;--f4:#ffc92e;--f5:#a388ff;--f6:#8ca69c;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--body);overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;line-height:1.14;text-wrap:balance}
+h2,h1{font-family:var(--disp);font-weight:800}
+h3{font:700 20px/1.2 var(--body)}
+p{margin:0;max-width:68ch}
+ul{margin:0;padding-left:1.15em;display:grid;gap:5px}
+a{color:var(--leaf);font-weight:600}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--sun),var(--coral));transform:scaleX(0);transform-origin:left;z-index:20}
+.hero{position:relative;background:var(--hero);color:var(--herofg);overflow:hidden;border-radius:0 0 36px 36px}
+#beans{position:absolute;inset:0;width:100%;height:100%}
+.hero .inner{position:relative;padding-block:56px 44px;display:grid;gap:18px;pointer-events:none}
+.hero .kick{font:600 13px/1.5 var(--mono);opacity:.85}
+.hero h1{font-size:clamp(40px,10.5vw,112px);letter-spacing:-.03em;overflow-wrap:anywhere}
+.hero h1 span{color:var(--sun)}
+.hero .lead{font-size:clamp(20px,2.8vw,28px);line-height:1.3;font-weight:600;max-width:30ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin-top:10px}
+.st{border-radius:18px;padding:14px 16px;font-size:14.5px;line-height:1.3;color:#062d21;animation:pop .7s cubic-bezier(.2,1.5,.4,1) backwards}
+.st b{display:block;font:800 clamp(18px,2.2vw,23px)/1.2 var(--disp);margin-bottom:3px;font-variant-numeric:tabular-nums}
+.st.a{background:#7ff0c3;rotate:-1.3deg}.st.b{background:#ffd34d;rotate:1deg;animation-delay:.1s}.st.c{background:#ff9fae;rotate:-.7deg;animation-delay:.2s}.st.d{background:#9fd2ff;rotate:1.2deg;animation-delay:.3s}
+@keyframes pop{from{transform:scale(.8) translateY(14px)}}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:9;margin-top:14px}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;background:color-mix(in srgb,var(--sur) 90%,transparent);backdrop-filter:blur(10px);border-radius:999px;padding-block:6px;box-shadow:0 6px 22px color-mix(in srgb,var(--ink) 13%,transparent);max-width:1128px}
+nav a{flex:none;padding:7px 13px;border-radius:999px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;transition:background .25s,color .25s}
+nav a:hover{background:var(--sur2)}
+nav a.on{background:var(--ink);color:var(--sur)}
+main{display:grid;gap:22px;padding-block:22px 40px}
+section{background:var(--sur);border-radius:30px;padding:30px clamp(16px,3.4vw,38px);display:grid;gap:22px;min-width:0;box-shadow:0 10px 34px color-mix(in srgb,var(--ink) 7%,transparent)}
+#objetivos,#riesgos{--c:var(--coral)}#alcance,#conclusiones{--c:var(--sky)}#recursos{--c:var(--sun)}#gantt{--c:var(--grape)}
+.sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sh .num{font:700 13px var(--mono);color:#fff;background:var(--c);padding:5px 11px;border-radius:999px}
+#recursos .sh .num{color:#3a2a00}
+.sh h2{font-size:clamp(25px,4.6vw,44px);letter-spacing:-.02em;overflow-wrap:anywhere}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px 30px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.two>*,.three>*{min-width:0}
+.rolebox{grid-column:span 2}
+@media (max-width:660px){.rolebox{grid-column:auto}}
+.stack{display:grid;gap:11px;min-width:0;align-content:start}
+.note{background:var(--n1);border-radius:18px;padding:16px 18px;display:grid;gap:7px;align-content:start;transition:rotate .25s,transform .25s,box-shadow .25s}
+.note h3{font-size:18px}
+.note p,.note li{font-size:16px}
+.three .note:nth-child(5n+2),.two>.note:nth-child(2){background:var(--n2)}
+.three .note:nth-child(5n+3){background:var(--n3)}
+.three .note:nth-child(5n+4){background:var(--n4)}
+.three .note:nth-child(5n){background:var(--n5)}
+.three .note:nth-child(odd){rotate:-.7deg}.three .note:nth-child(even){rotate:.7deg}
+.three .note:hover{rotate:0deg;transform:translateY(-5px) scale(1.015);box-shadow:0 14px 26px color-mix(in srgb,var(--ink) 15%,transparent)}
+.rolebox.note{rotate:0deg!important;background:var(--sur2)!important}
+.src{font-size:14px;color:var(--mut)}
+.tw{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th{text-align:left;font:600 13px var(--mono);color:var(--mut);padding:7px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:var(--sur2)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.tot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:0}
+.wide{min-width:760px}
+.smart{display:grid;gap:9px}
+.smart div{display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:center;font-size:16px}
+.smart b{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;font:800 16px var(--disp);color:#fff;background:var(--coral);transition:transform .25s}
+.smart div:nth-child(3) b{background:var(--sky)}.smart div:nth-child(4) b{background:var(--grape)}.smart div:nth-child(5) b{background:var(--green)}.smart div:nth-child(6) b{background:#c98a00}
+.smart div:hover b{transform:rotate(-9deg) scale(1.12)}
+.obj{font:700 clamp(21px,2.7vw,27px)/1.3 var(--body);max-width:44ch}
+.flow{display:flex;flex-wrap:wrap;gap:8px}
+.flow div{flex:1 1 138px;background:var(--sur2);padding:11px 13px;border-radius:14px;font-size:15px;line-height:1.3;min-width:0;animation:lit 7.5s infinite}
+.flow div:nth-of-type(2){animation-delay:1.5s}.flow div:nth-of-type(3){animation-delay:3s}.flow div:nth-of-type(4){animation-delay:4.5s}.flow div:nth-of-type(5){animation-delay:6s}
+.flow b{display:block;margin-bottom:2px}
+.flow i{align-self:center;font-style:normal;color:var(--coral);font-weight:700}
+@keyframes lit{0%,18%{background:var(--n1);transform:translateY(-3px)}24%,100%{background:var(--sur2);transform:none}}
+.phone{width:min(100%,262px);margin-inline:auto;border:8px solid var(--ink);border-radius:32px;padding:18px 13px;background:var(--sur);display:grid;gap:9px;font-size:14px;line-height:1.3;box-shadow:0 22px 40px color-mix(in srgb,var(--ink) 22%,transparent);animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(-1deg)}}
+.phone .pt{font-weight:700;font-size:18px;color:var(--leaf)}
+.phone .st{all:unset;display:block;position:relative;overflow:hidden;background:var(--n3);border-radius:9px;padding:7px 9px;font-weight:600;color:var(--ink);min-height:48px}
+.phone .st i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 2s linear}
+.phone .r{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding-bottom:5px}
+.phone .r span{color:var(--mut)}
+.phone .btn{background:var(--green);color:#03261a;text-align:center;padding:9px;border-radius:11px;font-weight:700}
+.cap{font-size:14px;color:var(--mut);text-align:center;margin-top:10px;max-width:none}
+.cw{position:relative;min-width:0}
+pre{margin:0;background:var(--code);color:var(--codefg);padding:16px;border-radius:14px;overflow-x:auto;font:400 13.5px/1.55 var(--mono);min-width:0}
+.copy{position:absolute;top:8px;right:8px;border:0;border-radius:8px;padding:5px 10px;font:600 13px var(--body);background:var(--sun);color:#2b2000;cursor:pointer}
+details summary{cursor:pointer;font-weight:600;color:var(--leaf);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border:1.5px solid var(--line);background:var(--sur);color:var(--ink);border-radius:999px;padding:6px 13px;font:600 14.5px var(--body);cursor:pointer;transition:transform .15s,background .2s}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:var(--ink);color:var(--sur);border-color:var(--ink)}
+.fbox{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;background:var(--n5);padding:11px 15px;border-radius:14px}
+.gw{overflow-x:auto;min-width:0}
+.gantt{display:block;min-width:820px;width:100%;height:auto;font-family:var(--body)}
+.gantt .grid{stroke:var(--line);stroke-width:1}
+.gantt .wk{font:600 10px var(--mono);fill:var(--mut);text-anchor:middle}
+.gantt .ph{font:700 14px var(--body);fill:var(--ink)}
+.gantt .ac{font-size:13.5px;fill:var(--ink)}
+.gantt .lb{font:600 10.5px var(--mono);fill:var(--mut)}
+.gantt .bar{transform-box:fill-box;transform-origin:left;transition:transform .7s cubic-bezier(.2,.9,.3,1),opacity .25s}
+.gantt.pre .bar{transform:scaleX(.06)}
+.gantt.sel .bar:not(.on){opacity:.14}
+.bar.f1{fill:var(--f1)}.bar.f2{fill:var(--f2)}.bar.f3{fill:var(--f3)}.bar.f4{fill:var(--f4)}.bar.f5{fill:var(--f5)}.bar.f6{fill:var(--f6)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+i.f1,.dot.f1{background:var(--f1)}i.f2,.dot.f2{background:var(--f2)}i.f3,.dot.f3{background:var(--f3)}i.f4,.dot.f4{background:var(--f4)}i.f5,.dot.f5{background:var(--f5)}i.f6,.dot.f6{background:var(--f6)}
+.brow{display:grid;grid-template-columns:minmax(0,155px) minmax(50px,1fr) 70px 52px;gap:10px;align-items:center;font-size:15px;padding-block:5px}
+.brow b,.brow em{text-align:right;font-style:normal;font-variant-numeric:tabular-nums}
+.brow em{color:var(--mut)}
+.track{height:16px;background:var(--sur2);border-radius:999px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:999px;transform-origin:left;transition:transform .9s cubic-bezier(.2,.9,.3,1)}
+.pre .track i{transform:scaleX(.08)}
+.sim{background:var(--n4);border-radius:18px;padding:16px 18px;display:grid;gap:9px}
+.sim input{width:100%;accent-color:var(--coral)}
+.simr{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px}
+.simr span{display:block;font-size:14px;color:var(--mut)}
+.simr b{font-variant-numeric:tabular-nums}
+.pill{display:inline-block;min-width:34px;text-align:center;padding:2px 8px;border-radius:999px;font:600 13px var(--mono);background:var(--sur2)}
+.hi{color:var(--cherry)}.me{color:var(--parch)}.lo{color:var(--leaf)}
+.rid{font:600 13px var(--mono);color:var(--mut)}
+tr[data-l] td:first-child{white-space:nowrap}
+.rtool{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;align-items:center}
+.matrix{display:grid;grid-template-columns:20px repeat(5,minmax(0,1fr));gap:4px;max-width:440px;min-width:0}
+.mc{min-height:48px;border-radius:9px;display:flex;flex-wrap:wrap;gap:2px;align-content:center;justify-content:center;padding:2px}
+.mc.lo{background:var(--n1)}.mc.me{background:var(--n3)}.mc.hi{background:var(--n2)}
+.mc b{font:600 11px var(--mono);color:var(--ink);transition:transform .2s;cursor:default}
+.mc b:hover{transform:scale(1.3)}
+.ax{font:600 12px var(--mono);color:var(--mut);display:grid;place-items:center}
+.mxl{grid-column:1/-1;font-size:13px;color:var(--mut);text-align:center;max-width:none}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.verdict div{background:var(--sur2);border-radius:18px;padding:15px 17px;font-size:16px;transition:transform .2s}
+.verdict div:hover{transform:translateY(-5px)}
+.verdict b{display:block;font-size:19px}
+.verdict span{font:600 12.5px var(--mono)}
+.refs{display:grid;gap:9px;font-size:15.5px}
+.refs p{padding-left:2em;text-indent:-2em;max-width:none;overflow-wrap:anywhere}
+footer{padding-block:0 34px;color:var(--mut);font-size:15px}
+.pre-up{transform:translateY(30px)}
+.up{transition:transform .7s cubic-bezier(.2,.9,.3,1),rotate .25s,box-shadow .25s}
+@media (max-width:480px){.brow{grid-template-columns:minmax(0,1fr) 68px 50px}.brow .track{grid-column:1/-1;grid-row:2}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<header class="hero"><canvas id="beans" aria-hidden="true"></canvas><div class="wrap inner">
+  <div class="kick">Mural digital · Gerencia de Proyectos de Software · Semana 2<br>Diego Alejandro Astudillo Rojas</div>
+  <h1>Traza<span>Grano</span></h1>
+  <p class="lead">Una app para que cada lote de café pueda demostrar de qué parcela salió.</p>
+  <div class="facts">
+    <div class="st a"><b>Agropecuario</b>Sector</div>
+    <div class="st b"><b><span data-count="24">24</span> semanas</b>11 de enero a 25 de junio de 2027</div>
+    <div class="st c"><b>$<span data-count="272.5" data-dec="1">272,5</span> M</b>Presupuesto total en pesos</div>
+    <div class="st d"><b><span data-count="300">300</span></b>Caficultores en el piloto</div>
+  </div>
+</div></header>
+
+<nav aria-label="Secciones del mural"><div class="wrap">
+<a href="#contexto">Contexto</a><a href="#objetivos">Objetivos</a><a href="#alcance">Alcance</a><a href="#recursos">Recursos</a><a href="#riesgos">Riesgos</a><a href="#gantt">Gantt</a><a href="#presupuesto">Presupuesto</a><a href="#conclusiones">Conclusiones</a><a href="#referencias">Referencias</a>
+</div></nav>
+
+<main class="wrap">
+<section id="contexto">
+  <div class="sh"><span class="num">1 de 8</span><h2>Contexto</h2></div>
+  <div class="two">
+    <div class="stack">
+      <h3>La necesidad</h3>
+      <p>Desde el 30 de diciembre de 2026, las empresas grandes y medianas que vendan café en la Unión Europea deben probar que no viene de tierras deforestadas después del 31 de diciembre de 2020. Las micro y pequeñas tienen plazo hasta el 30 de junio de 2027. Para eso piden la ubicación de cada parcela, las fechas de producción y los papeles de legalidad (AGRINFO, s. f.; Preferred by Nature, 2025).</p>
+      <p>La Federación ya tiene los lotes georreferenciados en SICA (El Colombiano, 2024). El hueco está después: cuando la asociación recibe el café y mezcla varias entregas, se puede perder la relación entre el saco y la parcela. Para este proyecto supongo que la asociación lleva ese control en cuadernos o en Excel, y ahí aparece el riesgo de mezcla que el reglamento pide controlar.</p>
+    </div>
+    <div class="note">
+      <h3>Sector económico</h3>
+      <p>Agropecuario, cadena del café. El proyecto apunta a las asociaciones de pequeños productores que venden a exportadores.</p>
+      <ul>
+        <li><b>552.814</b> caficultores y <b>659.850</b> fincas (Gaviria Botero, 2025)</li>
+        <li><b>296.400</b> caficultores con menos de 1 hectárea (Gaviria Botero, 2025)</li>
+        <li><b>26 %</b> de las exportaciones va a Europa, según datos de 2023 (Preferred by Nature, 2025)</li>
+        <li><b>12,65 millones</b> de sacos en el último año cafetero (Diario del Sur, 2026)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="three">
+    <div class="note"><h3>Político</h3><p>La UE clasificó a Colombia como país de riesgo estándar y el Gobierno pidió pasar a bajo riesgo (Ministerio de Comercio, Industria y Turismo, 2025). Ese nivel obliga a revisar cada año al menos al 3 % de los operadores (Portafolio, 2025). El reglamento ya se aplazó dos veces, y la revisión de mayo de 2026 confirmó las fechas (Comisión Europea, 2026).</p></div>
+    <div class="note"><h3>Económico</h3><p>La producción bajó cerca de 15 % frente al año anterior (Diario del Sur, 2026). La revaluación quitó alrededor de $700.000 por carga en un año (Agrolatam, 2026). Los márgenes están apretados, así que el costo no puede caer sobre el caficultor.</p></div>
+    <div class="note"><h3>Tecnológico</h3><p>El 56,9 % de los hogares en centros poblados y zonas rurales dispersas tiene internet, contra 73,9 % en todo el país (DPL News, 2026). Por eso la app debe funcionar sin señal en la finca y sincronizar después. El celular es el equipo de trabajo.</p></div>
+    <div class="note"><h3>Ecológico</h3><p>El Gobierno reporta que cerca del 98 % de los lotes de café y cacao está libre de deforestación (Ministerio de Comercio, Industria y Turismo, 2025). Ojo: el EUDR llama bosque a más áreas que el IDEAM (desde 0,5 hectáreas y 10 % de cobertura), así que no basta con la definición colombiana (Preferred by Nature, 2025).</p></div>
+    <div class="note"><h3>Legal</h3><p>Reglamento (UE) 2023/1115: un punto GPS hasta 4 hectáreas, contorno completo si tiene más, y registros guardados 5 años (Parlamento Europeo y Consejo de la Unión Europea, 2023; Preferred by Nature, 2025). En Colombia aplica la Ley 1581 de 2012: el caficultor debe autorizar antes de que sus datos se usen o se compartan (Congreso de Colombia, 2012).</p></div>
+    <div class="note"><h3>Oportunidad</h3><p>Colombia está bien ubicada frente a otros orígenes porque ya tiene SICA y extensionistas. TrazaGrano no compite con eso: conecta los datos de la parcela con lo que pasa en el punto de acopio.</p></div>
+  </div>
+  <div class="stack">
+    <h3>Grupos de interés</h3>
+    <div class="tw"><table class="wide"><thead><tr><th>Grupo</th><th>Qué le interesa</th><th>Cómo participa</th></tr></thead><tbody>
+    <tr><td>Pequeños caficultores</td><td>Seguir vendiendo, sin costos nuevos ni papeleo, y controlar sus datos</td><td>Autorizan sus datos y validan la app</td></tr>
+    <tr><td>Asociación de productores</td><td>Saber qué entró, de quién y a quién se vendió</td><td>Patrocinador y usuario principal</td></tr>
+    <tr><td>Exportadores</td><td>Recibir datos completos y confiables a tiempo</td><td>Definen el formato del paquete de datos</td></tr>
+    <tr><td>Importadores de la UE</td><td>Presentar su declaración sin riesgo de sanción</td><td>Clientes finales de la información</td></tr>
+    <tr><td>Federación Nacional de Cafeteros</td><td>Proteger el acceso al mercado y al caficultor</td><td>Aliado potencial por SICA y extensionistas</td></tr>
+    <tr><td>Entidades del Estado (MinCIT, MinAmbiente, SIC)</td><td>Cumplimiento del país y protección de datos</td><td>Regulan y vigilan</td></tr>
+    <tr><td>Cooperación internacional</td><td>Que el pequeño productor no quede por fuera</td><td>Posible fuente de financiación</td></tr>
+    <tr><td>Equipo del proyecto</td><td>Entregar a tiempo y con calidad</td><td>Construye y acompaña el piloto</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section id="objetivos">
+  <div class="sh"><span class="num">2 de 8</span><h2>Objetivos</h2></div>
+  <div class="two">
+    <div class="stack">
+      <h3>Objetivo principal</h3>
+      <p class="obj">Desarrollar y probar en 24 semanas, con un presupuesto máximo de $275 millones, una app que le permita a una asociación de 300 caficultores trazar hasta la parcela al menos el 90 % de los kilos que recibe.</p>
+    </div>
+    <div class="smart">
+      <h3>Por qué es SMART</h3>
+      <div><b>S</b><span>Una app de trazabilidad para una asociación de caficultores.</span></div>
+      <div><b>M</b><span>300 caficultores y 90 % de los kilos trazados.</span></div>
+      <div><b>A</b><span>Se apoya en tecnología conocida y en los datos que los productores ya tienen.</span></div>
+      <div><b>R</b><span>Responde a una exigencia real del mercado europeo.</span></div>
+      <div><b>T</b><span>24 semanas, del 11 de enero al 25 de junio de 2027.</span></div>
+    </div>
+  </div>
+  <div class="stack">
+    <h3>Objetivos específicos</h3>
+    <div class="tw"><table class="wide"><thead><tr><th>Objetivo</th><th>Cómo se mide</th><th>Fecha</th></tr></thead><tbody>
+    <tr><td>Validar los requisitos con 20 caficultores, 1 asociación y 2 exportadores</td><td>Documento de requisitos aprobado por todos</td><td>Semana 6</td></tr>
+    <tr><td>Construir una versión funcional para Android y web que opere sin internet</td><td>100 % de los flujos críticos aprobados en pruebas</td><td>Semana 18</td></tr>
+    <tr><td>Registrar en el piloto a 300 caficultores con su autorización de datos</td><td>Al menos 95 % con autorización y parcela validada</td><td>Semana 22</td></tr>
+    <tr><td>Generar un paquete de datos que el exportador pueda usar sin corregirlo</td><td>Cero errores de formato en 3 exportaciones de prueba</td><td>Semana 24</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section id="alcance">
+  <div class="sh"><span class="num">3 de 8</span><h2>Alcance</h2></div>
+  <div class="two">
+    <div class="stack">
+      <h3>Lo que incluye</h3>
+      <ul>
+        <li>App Android que funciona sin internet para técnicos de campo</li>
+        <li>Panel web para la asociación</li>
+        <li>Registro de caficultores, fincas y parcelas con punto o contorno</li>
+        <li>Autorización de tratamiento de datos dentro de la app</li>
+        <li>Recibo de café por lote con etiqueta QR en el punto de acopio</li>
+        <li>Control de mezcla y de saldo por lote</li>
+        <li>Carga de documentos de legalidad</li>
+        <li>Paquete de datos para el exportador en GeoJSON y CSV</li>
+        <li>Conservación de registros por 5 años</li>
+        <li>Capacitación y piloto en una asociación</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h3>Lo que no incluye</h3>
+      <ul>
+        <li>No reemplaza a SICA ni a los datos de la Federación</li>
+        <li>No presenta la declaración ante el sistema de la UE, eso lo hace el operador</li>
+        <li>No hace análisis satelital propio, usa resultados de herramientas como Global Forest Watch</li>
+        <li>No da certificaciones ni garantiza el cumplimiento legal</li>
+        <li>No maneja pagos ni créditos</li>
+        <li>No cubre otros productos como cacao o palma</li>
+        <li>No tiene versión para iPhone en esta etapa</li>
+      </ul>
+      <div class="note"><h3>Limitación principal</h3><p>El piloto cubre una sola asociación hipotética del Huila. Los resultados no se pueden extender a todo el país sin probar en otras zonas.</p></div>
+    </div>
+  </div>
+  <div class="two">
+    <div class="stack">
+      <h3>Cómo fluye el dato</h3>
+      <div class="flow" id="flow">
+        <div><b>Finca</b>El técnico registra la parcela sin señal</div><i>→</i>
+        <div><b>Acopio</b>Se recibe el café y se le pone QR al lote</div><i>→</i>
+        <div><b>Sincronización</b>Los datos suben cuando hay internet</div><i>→</i>
+        <div><b>Panel</b>La asociación revisa saldos y documentos</div><i>→</i>
+        <div><b>Exportador</b>Recibe el paquete y lo usa en su declaración</div>
+      </div>
+      <h3>Ejemplo del dato de un lote</h3>
+      <pre><code>{
+  &quot;lote&quot;: &quot;L-0142&quot;,
+  &quot;kilos_cps&quot;: 625,
+  &quot;cosecha&quot;: &quot;2027-05-20&quot;,
+  &quot;parcela&quot;: {
+    &quot;id&quot;: &quot;P-0087&quot;,
+    &quot;area_ha&quot;: 1.8,
+    &quot;geometria&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-75.894213, 1.851467] }
+  },
+  &quot;autorizacion_datos&quot;: true
+}</code></pre>
+      <p class="src">Ejemplo inventado para mostrar la estructura. Las coordenadas no corresponden a una finca real.</p>
+      <h3>Regla de validación</h3>
+      <pre><code>def validar_parcela(area_ha, geometria):
+    &quot;&quot;&quot;Revisa la regla de geolocalización del EUDR antes de aceptar la parcela.&quot;&quot;&quot;
+    if area_ha &gt; 4 and geometria[&quot;type&quot;] != &quot;Polygon&quot;:
+        return &quot;Más de 4 ha: hay que marcar el contorno de la parcela&quot;
+    if area_ha &lt;= 4 and geometria[&quot;type&quot;] not in (&quot;Point&quot;, &quot;Polygon&quot;):
+        return &quot;Hasta 4 ha: basta con un punto, pero el dato no es válido&quot;
+    return &quot;OK&quot;
+
+print(validar_parcela(1.8, {&quot;type&quot;: &quot;Point&quot;}))    # OK
+print(validar_parcela(5.2, {&quot;type&quot;: &quot;Point&quot;}))    # Más de 4 ha: hay que marcar...</code></pre>
+    </div>
+    <div>
+      <div class="phone" role="img" aria-label="Boceto de la pantalla de recibo de lote en la app">
+        <div class="pt">Recibir lote</div>
+        <div class="st" id="sync"><span id="synct">Sin señal · 3 registros por sincronizar</span><i id="syncb"></i></div>
+        <div class="r"><span>Lote</span><b>L-0142</b></div>
+        <div class="r"><span>Caficultor</span><b>Productor 087</b></div>
+        <div class="r"><span>Parcela</span><b>P-0087 · 1,8 ha</b></div>
+        <div class="r"><span>Café pergamino seco</span><b>625 kg</b></div>
+        <div class="r"><span>Autorización</span><b>Vigente</b></div>
+        <div class="btn">Guardar e imprimir QR</div>
+      </div>
+      <p class="cap">Boceto propio de la pantalla de recibo. 625 kg equivalen a 5 cargas de 125 kg.</p>
+    </div>
+  </div>
+</section>
+
+<section id="recursos">
+  <div class="sh"><span class="num">4 de 8</span><h2>Recursos</h2></div>
+  <div class="three">
+    <div class="note"><h3>Humanos</h3><ul><li>Gerente de proyecto</li><li>Analista y diseñador UX</li><li>Backend sénior</li><li>Desarrollador móvil</li><li>Desarrollador web</li><li>Analista de pruebas</li><li>DevOps por horas</li><li>2 técnicos de campo</li><li>Abogado de datos y contador</li></ul></div>
+    <div class="note"><h3>Técnicos</h3><ul><li>Flutter para Android</li><li>React para el panel web</li><li>Node.js como API</li><li>PostgreSQL con PostGIS</li><li>Base local SQLite en el celular</li><li>Nube, Git y CI/CD</li><li>Mapas sin conexión</li></ul></div>
+    <div class="note"><h3>Físicos</h3><ul><li>4 portátiles</li><li>6 celulares Android</li><li>2 GPS de mano</li><li>2 impresoras de etiquetas</li><li>Puestos de coworking</li><li>Transporte a veredas</li><li>Salón para talleres</li></ul></div>
+    <div class="note"><h3>De información</h3><ul><li>Reglamento (UE) 2023/1115 y guías</li><li>Ley 1581 de 2012</li><li>Datos de los caficultores, con autorización</li><li>Registros de compra de la asociación</li><li>Formato pedido por los exportadores</li><li>Resultados de Global Forest Watch</li><li>Guía para pequeños productores de café</li></ul></div>
+    <div class="note rolebox">
+      <h3>Costo por rol</h3>
+      <div class="tw"><table><thead><tr><th>Rol</th><th class="n">Salario mes</th><th class="n">Costo semana</th></tr></thead><tbody><tr><td>Gerente de proyecto</td><td class="n">$7.000.000</td><td class="n">$2.455.385</td></tr><tr><td>Analista y diseñador UX</td><td class="n">$4.200.000</td><td class="n">$1.473.231</td></tr><tr><td>Desarrollador backend sénior</td><td class="n">$5.800.000</td><td class="n">$2.034.462</td></tr><tr><td>Desarrollador móvil</td><td class="n">$4.500.000</td><td class="n">$1.578.462</td></tr><tr><td>Desarrollador web</td><td class="n">$3.600.000</td><td class="n">$1.262.769</td></tr><tr><td>Analista de pruebas</td><td class="n">$3.000.000</td><td class="n">$1.052.308</td></tr><tr><td>Ingeniero DevOps (por horas)</td><td class="n">$5.500.000</td><td class="n">$1.929.231</td></tr><tr><td>Técnico de campo (2 personas)</td><td class="n">$2.800.000</td><td class="n">$982.154</td></tr></tbody></table></div>
+      <p class="src">Salarios estimados con base en promedios publicados (Indeed, 2026). Todos superan el mínimo de 2026, que es $1.750.905 (Consultor Salud, 2025). El costo semanal incluye un factor de 1,52 por prestaciones y aportes (Buk, 2026).</p>
+    </div>
+  </div>
+</section>
+
+<section id="riesgos">
+  <div class="sh"><span class="num">5 de 8</span><h2>Riesgos</h2></div>
+  <p>Califiqué cada riesgo de 1 a 5 en probabilidad e impacto. El puntaje es la multiplicación de los dos: de 15 en adelante es alto, de 8 a 14 es medio y por debajo de 8 es bajo.</p>
+  <div class="rtool"><div class="matrix" role="img" aria-label="Matriz de riesgos: probabilidad en el eje vertical e impacto en el horizontal"><div class="ax">5</div><div class="mc lo"></div><div class="mc me"></div><div class="mc hi"></div><div class="mc hi"></div><div class="mc hi"></div><div class="ax">4</div><div class="mc lo"></div><div class="mc me"></div><div class="mc me"></div><div class="mc hi"></div><div class="mc hi"><b title="No se consigue quién pague el proyecto">R1</b></div><div class="ax">3</div><div class="mc lo"></div><div class="mc lo"></div><div class="mc me"><b title="Cambios en las reglas o el formato del EUDR">R6</b><b title="Precisión baja del GPS bajo sombrío">R7</b><b title="El piloto no coincide con la cosecha de la zona">R8</b></div><div class="mc me"><b title="Los caficultores no adoptan la app o desconfían">R3</b><b title="Fallos o choques de datos al sincronizar">R4</b></div><div class="mc hi"><b title="Exportadores prefieren usar solo la plataforma de la Federación">R2</b></div><div class="ax">2</div><div class="mc lo"></div><div class="mc lo"></div><div class="mc lo"><b title="Suben los costos o el dólar">R10</b></div><div class="mc me"><b title="Sale una persona clave del equipo">R9</b></div><div class="mc me"><b title="Uso de datos sin autorización válida">R5</b></div><div class="ax">1</div><div class="mc lo"></div><div class="mc lo"></div><div class="mc lo"></div><div class="mc lo"></div><div class="mc lo"></div><div></div><div class="ax">1</div><div class="ax">2</div><div class="ax">3</div><div class="ax">4</div><div class="ax">5</div><p class="mxl">Impacto →, Probabilidad ↑</p></div><div class="stack"><h3>Mira cuáles pesan más</h3><p>Los dos riesgos altos no son técnicos. Son la financiación y la adopción de los exportadores.</p><div class="chips" id="rchips" role="group" aria-label="Filtrar riesgos"><button class="chip on" data-l="all" type="button">Todos (10)</button><button class="chip" data-l="hi" type="button">Altos (2)</button><button class="chip" data-l="me" type="button">Medios (7)</button><button class="chip" data-l="lo" type="button">Bajos (1)</button></div></div></div><div class="tw"><table class="wide"><thead><tr><th>Tipo</th><th>Riesgo</th><th class="n">P</th><th class="n">I</th><th class="n">Puntaje</th><th>Qué hago para manejarlo</th></tr></thead><tbody>
+  <tr data-l="hi"><td><b class="rid">R1</b> Financiero</td><td>No se consigue quién pague el proyecto</td><td class="n">4</td><td class="n">5</td><td class="n"><span class="pill hi">20</span></td><td>Buscar exportador y cooperación antes de arrancar, y entregar por fases</td></tr>
+  <tr data-l="hi"><td><b class="rid">R2</b> Mercado</td><td>Exportadores prefieren usar solo la plataforma de la Federación</td><td class="n">3</td><td class="n">5</td><td class="n"><span class="pill hi">15</span></td><td>Enfocarse en el acopio, donde está el vacío, y hablar con ellos desde la semana 3</td></tr>
+  <tr data-l="me"><td><b class="rid">R3</b> Humano</td><td>Los caficultores no adoptan la app o desconfían</td><td class="n">3</td><td class="n">4</td><td class="n"><span class="pill me">12</span></td><td>El técnico hace el registro, los talleres son en vereda y el caficultor no paga</td></tr>
+  <tr data-l="me"><td><b class="rid">R4</b> Tecnológico</td><td>Fallos o choques de datos al sincronizar</td><td class="n">3</td><td class="n">4</td><td class="n"><span class="pill me">12</span></td><td>Sincronización probada desde el sprint 3 y registro de cambios</td></tr>
+  <tr data-l="me"><td><b class="rid">R5</b> Legal</td><td>Uso de datos sin autorización válida</td><td class="n">2</td><td class="n">5</td><td class="n"><span class="pill me">10</span></td><td>Autorización obligatoria antes de cada registro y revisión del abogado</td></tr>
+  <tr data-l="me"><td><b class="rid">R6</b> Legal</td><td>Cambios en las reglas o el formato del EUDR</td><td class="n">3</td><td class="n">3</td><td class="n"><span class="pill me">9</span></td><td>Formato configurable y revisión mensual de novedades</td></tr>
+  <tr data-l="me"><td><b class="rid">R7</b> Tecnológico</td><td>Precisión baja del GPS bajo sombrío</td><td class="n">3</td><td class="n">3</td><td class="n"><span class="pill me">9</span></td><td>Promediar lecturas y validar en mapa con el productor</td></tr>
+  <tr data-l="me"><td><b class="rid">R8</b> Ambiental</td><td>El piloto no coincide con la cosecha de la zona</td><td class="n">3</td><td class="n">3</td><td class="n"><span class="pill me">9</span></td><td>Confirmar el calendario de cosecha en la fase 1 y ajustar las semanas</td></tr>
+  <tr data-l="me"><td><b class="rid">R9</b> Humano</td><td>Sale una persona clave del equipo</td><td class="n">2</td><td class="n">4</td><td class="n"><span class="pill me">8</span></td><td>Código documentado, revisiones cruzadas y tareas compartidas</td></tr>
+  <tr data-l="lo"><td><b class="rid">R10</b> Financiero</td><td>Suben los costos o el dólar</td><td class="n">2</td><td class="n">3</td><td class="n"><span class="pill lo">6</span></td><td>Reserva de 10 % y compra de equipos al inicio</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="gantt">
+  <div class="sh"><span class="num">6 de 8</span><h2>Diagrama de Gantt</h2></div>
+  <p><b>Tiempo total estimado: 24 semanas.</b> Empieza el lunes 11 de enero de 2027 y termina el viernes 25 de junio de 2027, cinco días antes de la fecha límite de las micro y pequeñas empresas.</p>
+  <div class="chips" id="fchips" role="group" aria-label="Filtrar el Gantt por fase"><button class="chip on" data-f="all" type="button">Todas</button><button class="chip" data-f="f1" type="button"><span class="dot f1"></span>F1 Inicio</button><button class="chip" data-f="f2" type="button"><span class="dot f2"></span>F2 Análisis y diseño</button><button class="chip" data-f="f3" type="button"><span class="dot f3"></span>F3 Desarrollo</button><button class="chip" data-f="f4" type="button"><span class="dot f4"></span>F4 Pruebas</button><button class="chip" data-f="f5" type="button"><span class="dot f5"></span>F5 Piloto</button><button class="chip" data-f="f6" type="button"><span class="dot f6"></span>F6 Cierre</button></div><div class="fbox" id="fbox" aria-live="polite"><b>24 semanas · 16 actividades</b><span>Toca una fase para ver sus semanas y su costo.</span></div><div class="gw"><svg class="gantt" viewBox="0 0 980 634" role="img" aria-label="Diagrama de Gantt de 24 semanas con 6 fases y 16 actividades"><line x1="300.0" x2="300.0" y1="24" y2="628" class="grid"/><text x="313.9" y="17" class="wk">1</text><line x1="327.8" x2="327.8" y1="24" y2="628" class="grid"/><text x="341.6" y="17" class="wk">2</text><line x1="355.5" x2="355.5" y1="24" y2="628" class="grid"/><text x="369.4" y="17" class="wk">3</text><line x1="383.2" x2="383.2" y1="24" y2="628" class="grid"/><text x="397.1" y="17" class="wk">4</text><line x1="411.0" x2="411.0" y1="24" y2="628" class="grid"/><text x="424.9" y="17" class="wk">5</text><line x1="438.8" x2="438.8" y1="24" y2="628" class="grid"/><text x="452.6" y="17" class="wk">6</text><line x1="466.5" x2="466.5" y1="24" y2="628" class="grid"/><text x="480.4" y="17" class="wk">7</text><line x1="494.2" x2="494.2" y1="24" y2="628" class="grid"/><text x="508.1" y="17" class="wk">8</text><line x1="522.0" x2="522.0" y1="24" y2="628" class="grid"/><text x="535.9" y="17" class="wk">9</text><line x1="549.8" x2="549.8" y1="24" y2="628" class="grid"/><text x="563.6" y="17" class="wk">10</text><line x1="577.5" x2="577.5" y1="24" y2="628" class="grid"/><text x="591.4" y="17" class="wk">11</text><line x1="605.2" x2="605.2" y1="24" y2="628" class="grid"/><text x="619.1" y="17" class="wk">12</text><line x1="633.0" x2="633.0" y1="24" y2="628" class="grid"/><text x="646.9" y="17" class="wk">13</text><line x1="660.8" x2="660.8" y1="24" y2="628" class="grid"/><text x="674.6" y="17" class="wk">14</text><line x1="688.5" x2="688.5" y1="24" y2="628" class="grid"/><text x="702.4" y="17" class="wk">15</text><line x1="716.2" x2="716.2" y1="24" y2="628" class="grid"/><text x="730.1" y="17" class="wk">16</text><line x1="744.0" x2="744.0" y1="24" y2="628" class="grid"/><text x="757.9" y="17" class="wk">17</text><line x1="771.8" x2="771.8" y1="24" y2="628" class="grid"/><text x="785.6" y="17" class="wk">18</text><line x1="799.5" x2="799.5" y1="24" y2="628" class="grid"/><text x="813.4" y="17" class="wk">19</text><line x1="827.2" x2="827.2" y1="24" y2="628" class="grid"/><text x="841.1" y="17" class="wk">20</text><line x1="855.0" x2="855.0" y1="24" y2="628" class="grid"/><text x="868.9" y="17" class="wk">21</text><line x1="882.8" x2="882.8" y1="24" y2="628" class="grid"/><text x="896.6" y="17" class="wk">22</text><line x1="910.5" x2="910.5" y1="24" y2="628" class="grid"/><text x="924.4" y="17" class="wk">23</text><line x1="938.2" x2="938.2" y1="24" y2="628" class="grid"/><text x="952.1" y="17" class="wk">24</text><text x="0" y="52" class="ph">F1 Inicio</text><rect x="300.0" y="45" width="83.2" height="6" rx="1" class="bar f1" data-f="f1" opacity=".45"/><text x="12" y="79" class="ac">Acta de inicio y plan del proyecto</text><rect x="300.0" y="67" width="55.5" height="16" rx="3" class="bar f1" data-f="f1"><title>Acta de inicio y plan del proyecto: semana 1 a 2</title></rect><text x="360.5" y="79" class="lb">S1–S2</text><text x="12" y="106" class="ac">Factibilidad y mapa de interesados</text><rect x="327.8" y="94" width="55.5" height="16" rx="3" class="bar f1" data-f="f1"><title>Factibilidad y mapa de interesados: semana 2 a 3</title></rect><text x="388.2" y="106" class="lb">S2–S3</text><text x="0" y="133" class="ph">F2 Análisis y diseño</text><rect x="355.5" y="126" width="111.0" height="6" rx="1" class="bar f2" data-f="f2" opacity=".45"/><text x="12" y="160" class="ac">Levantar requisitos en campo</text><rect x="355.5" y="148" width="83.2" height="16" rx="3" class="bar f2" data-f="f2"><title>Levantar requisitos en campo: semana 3 a 5</title></rect><text x="443.8" y="160" class="lb">S3–S5</text><text x="12" y="187" class="ac">Diseño UX y prototipo</text><rect x="383.2" y="175" width="83.2" height="16" rx="3" class="bar f2" data-f="f2"><title>Diseño UX y prototipo: semana 4 a 6</title></rect><text x="471.5" y="187" class="lb">S4–S6</text><text x="12" y="214" class="ac">Arquitectura y modelo de datos</text><rect x="411.0" y="202" width="55.5" height="16" rx="3" class="bar f2" data-f="f2"><title>Arquitectura y modelo de datos: semana 5 a 6</title></rect><text x="471.5" y="214" class="lb">S5–S6</text><text x="0" y="241" class="ph">F3 Desarrollo</text><rect x="466.5" y="234" width="277.5" height="6" rx="1" class="bar f3" data-f="f3" opacity=".45"/><text x="12" y="268" class="ac">Sprint 1: base, usuarios y permisos</text><rect x="466.5" y="256" width="55.5" height="16" rx="3" class="bar f3" data-f="f3"><title>Sprint 1: base, usuarios y permisos: semana 7 a 8</title></rect><text x="527.0" y="268" class="lb">S7–S8</text><text x="12" y="295" class="ac">Sprint 2: fincas, parcelas y mapa</text><rect x="522.0" y="283" width="55.5" height="16" rx="3" class="bar f3" data-f="f3"><title>Sprint 2: fincas, parcelas y mapa: semana 9 a 10</title></rect><text x="582.5" y="295" class="lb">S9–S10</text><text x="12" y="322" class="ac">Sprint 3: lotes y modo sin internet</text><rect x="577.5" y="310" width="55.5" height="16" rx="3" class="bar f3" data-f="f3"><title>Sprint 3: lotes y modo sin internet: semana 11 a 12</title></rect><text x="638.0" y="322" class="lb">S11–S12</text><text x="12" y="349" class="ac">Sprint 4: acopio, QR y documentos</text><rect x="633.0" y="337" width="55.5" height="16" rx="3" class="bar f3" data-f="f3"><title>Sprint 4: acopio, QR y documentos: semana 13 a 14</title></rect><text x="693.5" y="349" class="lb">S13–S14</text><text x="12" y="376" class="ac">Sprint 5: paquete para exportador</text><rect x="688.5" y="364" width="55.5" height="16" rx="3" class="bar f3" data-f="f3"><title>Sprint 5: paquete para exportador: semana 15 a 16</title></rect><text x="749.0" y="376" class="lb">S15–S16</text><text x="0" y="403" class="ph">F4 Pruebas</text><rect x="744.0" y="396" width="55.5" height="6" rx="1" class="bar f4" data-f="f4" opacity=".45"/><text x="12" y="430" class="ac">Pruebas integrales y corrección</text><rect x="744.0" y="418" width="55.5" height="16" rx="3" class="bar f4" data-f="f4"><title>Pruebas integrales y corrección: semana 17 a 18</title></rect><text x="804.5" y="430" class="lb">S17–S18</text><text x="12" y="457" class="ac">Prueba de seguridad y de datos</text><rect x="771.8" y="445" width="27.8" height="16" rx="3" class="bar f4" data-f="f4"><title>Prueba de seguridad y de datos: semana 18 a 18</title></rect><text x="804.5" y="457" class="lb">S18</text><text x="0" y="484" class="ph">F5 Piloto</text><rect x="799.5" y="477" width="111.0" height="6" rx="1" class="bar f5" data-f="f5" opacity=".45"/><text x="12" y="511" class="ac">Capacitar técnicos y productores</text><rect x="799.5" y="499" width="55.5" height="16" rx="3" class="bar f5" data-f="f5"><title>Capacitar técnicos y productores: semana 19 a 20</title></rect><text x="860.0" y="511" class="lb">S19–S20</text><text x="12" y="538" class="ac">Piloto con 300 caficultores</text><rect x="799.5" y="526" width="111.0" height="16" rx="3" class="bar f5" data-f="f5"><title>Piloto con 300 caficultores: semana 19 a 22</title></rect><text x="915.5" y="538" class="lb">S19–S22</text><text x="0" y="565" class="ph">F6 Cierre</text><rect x="910.5" y="558" width="55.5" height="6" rx="1" class="bar f6" data-f="f6" opacity=".45"/><text x="12" y="592" class="ac">Salida a producción y manuales</text><rect x="910.5" y="580" width="27.8" height="16" rx="3" class="bar f6" data-f="f6"><title>Salida a producción y manuales: semana 23 a 23</title></rect><text x="905.5" y="592" class="lb" text-anchor="end">S23</text><text x="12" y="619" class="ac">Entrega, lecciones y cierre</text><rect x="910.5" y="607" width="55.5" height="16" rx="3" class="bar f6" data-f="f6"><title>Entrega, lecciones y cierre: semana 23 a 24</title></rect><text x="905.5" y="619" class="lb" text-anchor="end">S23–S24</text></svg></div>
+  <div class="tw"><table><thead><tr><th>Fase</th><th class="n">Semanas</th><th class="n">Fechas 2027</th><th class="n">Duración</th></tr></thead><tbody><tr><td><span class="dot f1"></span>F1 Inicio</td><td class="n">S1 a S3</td><td class="n">11 ene a 29 ene</td><td class="n">3</td></tr><tr><td><span class="dot f2"></span>F2 Análisis y diseño</td><td class="n">S3 a S6</td><td class="n">25 ene a 19 feb</td><td class="n">4</td></tr><tr><td><span class="dot f3"></span>F3 Desarrollo</td><td class="n">S7 a S16</td><td class="n">22 feb a 30 abr</td><td class="n">10</td></tr><tr><td><span class="dot f4"></span>F4 Pruebas</td><td class="n">S17 a S18</td><td class="n">3 may a 14 may</td><td class="n">2</td></tr><tr><td><span class="dot f5"></span>F5 Piloto</td><td class="n">S19 a S22</td><td class="n">17 may a 11 jun</td><td class="n">4</td></tr><tr><td><span class="dot f6"></span>F6 Cierre</td><td class="n">S23 a S24</td><td class="n">14 jun a 25 jun</td><td class="n">2</td></tr></tbody></table></div>
+  <p class="src">Las fases 1 y 2 se cruzan en la semana 3. Por eso las duraciones suman 25, aunque el proyecto dura 24 semanas.</p>
+</section>
+
+<section id="presupuesto">
+  <div class="sh"><span class="num">7 de 8</span><h2>Presupuesto</h2></div>
+  <div class="two">
+    <div class="stack">
+      <h3>Por rubro</h3>
+      <div class="tw"><table><thead><tr><th>Rubro</th><th>Incluye</th><th class="n">Valor (COP)</th><th class="n">%</th></tr></thead><tbody><tr><td>Recursos humanos</td><td>8 roles con prestaciones</td><td class="n">$157.214.769</td><td class="n">57,7 %</td></tr><tr><td>Hardware</td><td>Portátiles, celulares y GPS</td><td class="n">$23.500.000</td><td class="n">8,6 %</td></tr><tr><td>Software</td><td>Nube, licencias y mapas</td><td class="n">$10.100.000</td><td class="n">3,7 %</td></tr><tr><td>Sistemas de comunicación</td><td>Datos, internet y mensajes</td><td class="n">$5.050.000</td><td class="n">1,9 %</td></tr><tr><td>Recursos físicos</td><td>Coworking, viajes y etiquetas QR</td><td class="n">$27.400.000</td><td class="n">10,1 %</td></tr><tr><td>Administrativos y legales</td><td>Abogado, contador, pólizas, prueba de seguridad</td><td class="n">$18.500.000</td><td class="n">6,8 %</td></tr><tr><td>Mercadeo</td><td>Talleres y material</td><td class="n">$6.000.000</td><td class="n">2,2 %</td></tr><tr><td>Imprevistos (10 %)</td><td>Sobre el subtotal</td><td class="n">$24.776.477</td><td class="n">9,1 %</td></tr><tr class="tot"><td colspan="2">Total del proyecto</td><td class="n">$272.541.246</td><td class="n">100 %</td></tr></tbody></table></div>
+    </div>
+    <div class="stack">
+      <h3>Por fase</h3>
+      <div><div class="brow"><span>F1 Inicio</span><div class="track"><i class="f1" style="width:31.2%"></i></div><b>$30,8 M</b><em>11,3 %</em></div><div class="brow"><span>F2 Análisis y diseño</span><div class="track"><i class="f2" style="width:41.0%"></i></div><b>$40,5 M</b><em>14,9 %</em></div><div class="brow"><span>F3 Desarrollo</span><div class="track"><i class="f3" style="width:100.0%"></i></div><b>$98,9 M</b><em>36,3 %</em></div><div class="brow"><span>F4 Pruebas</span><div class="track"><i class="f4" style="width:24.4%"></i></div><b>$24,2 M</b><em>8,9 %</em></div><div class="brow"><span>F5 Piloto</span><div class="track"><i class="f5" style="width:63.4%"></i></div><b>$62,7 M</b><em>23,0 %</em></div><div class="brow"><span>F6 Cierre</span><div class="track"><i class="f6" style="width:15.5%"></i></div><b>$15,4 M</b><em>5,6 %</em></div></div>
+      <p class="src">El valor de cada fase ya incluye su parte de imprevistos. Las dos vistas suman $272.541.246.</p>
+      <div class="sim"><h3>Prueba cambiar los imprevistos</h3>
+<label for="imp">Reserva para imprevistos: <b id="impv">10 %</b></label>
+<input id="imp" type="range" min="0" max="20" step="1" value="10" data-sub="247764769">
+<div class="simr"><div><span>Subtotal</span><b>$247.764.769</b></div><div><span>Imprevistos</span><b id="impc">$24.776.477</b></div><div><span>Total</span><b id="impt">$272.541.246</b></div></div>
+<p class="src">Esto es solo para simular. El presupuesto del proyecto se queda con el 10 %.</p></div>
+      <div class="note">
+        <h3>¿Cómo determinar el costo de cada fase?</h3>
+        <ol style="margin:0;padding-left:1.2em;display:grid;gap:5px">
+          <li>Parto el proyecto en fases y actividades.</li>
+          <li>Estimo cuántas semanas dura cada actividad y quién trabaja en ella.</li>
+          <li>Multiplico semanas × dedicación × costo semanal del rol.</li>
+          <li>Le sumo a cada fase los equipos, servicios y gastos que usa.</li>
+          <li>Agrego 10 % de imprevistos.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="two">
+    <div class="stack"><h3>El cálculo en Python</h3><pre><code>def costo_semana(rol):
+    return salarios[rol] * FACTOR_EMPLEADOR * 12 / SEMANAS_AL_ANIO
+
+for fase, _, ini, fin, roles in actividades:
+    semanas = fin - ini + 1
+    costo = sum(semanas * ded * costo_semana(r) for r, ded in roles.items())
+    fases[fase] = fases.get(fase, 0) + costo
+
+for rubro, _, valor, fase in otros_costos:
+    fases[fase] = fases.get(fase, 0) + valor
+
+fases = {f: c * (1 + IMPREVISTOS) for f, c in fases.items()}</code></pre></div>
+    <div class="stack"><h3>Resultado</h3><pre><code>F1 Inicio                   $30.813.877  11,3 %
+F2 Análisis y diseño        $40.547.354  14,9 %
+F3 Desarrollo               $98.917.077  36,3 %
+F4 Pruebas                  $24.175.631   8,9 %
+F5 Piloto                   $62.716.077  23,0 %
+F6 Cierre                   $15.371.231   5,6 %
+TOTAL                      $272.541.246</code></pre>
+    <p class="src">Ejemplo: el sprint 1 dura 2 semanas. Con el gerente y DevOps al 50 % y tres desarrolladores al 100 %, cuesta $14.136.000 antes de imprevistos.</p></div>
+  </div>
+  <details><summary>Ver el código completo</summary><pre><code># Costo por fase de TrazaGrano: costo = semanas x dedicacion x costo semanal del rol
+FACTOR_EMPLEADOR = 1.52   # salario + prestaciones + seguridad social + parafiscales
+SEMANAS_AL_ANIO = 52
+
+salarios = {             # salario mensual estimado en COP
+    &quot;gerente&quot;: 7_000_000, &quot;analista_ux&quot;: 4_200_000, &quot;backend&quot;: 5_800_000,
+    &quot;movil&quot;: 4_500_000,   &quot;web&quot;: 3_600_000,         &quot;qa&quot;: 3_000_000,
+    &quot;devops&quot;: 5_500_000,  &quot;campo&quot;: 2_800_000,
+}
+
+def costo_semana(rol):
+    return salarios[rol] * FACTOR_EMPLEADOR * 12 / SEMANAS_AL_ANIO
+
+# (fase, actividad, semana inicio, semana fin, {rol: dedicacion})
+actividades = [
+ (&quot;F1 Inicio&quot;, &quot;Acta de inicio y plan del proyecto&quot;,      1,  2, {&quot;gerente&quot;: 1.0}),
+ (&quot;F1 Inicio&quot;, &quot;Factibilidad y mapa de interesados&quot;,      2,  3, {&quot;gerente&quot;: .5, &quot;analista_ux&quot;: 1.0}),
+ (&quot;F2 Análisis y diseño&quot;, &quot;Levantar requisitos en campo&quot;,  3,  5, {&quot;gerente&quot;: .5, &quot;analista_ux&quot;: 1.0, &quot;campo&quot;: 1.0}),
+ (&quot;F2 Análisis y diseño&quot;, &quot;Diseño UX y prototipo&quot;,         4,  6, {&quot;analista_ux&quot;: 1.0, &quot;web&quot;: .5}),
+ (&quot;F2 Análisis y diseño&quot;, &quot;Arquitectura y modelo de datos&quot;,5,  6, {&quot;backend&quot;: 1.0, &quot;devops&quot;: .5}),
+ (&quot;F3 Desarrollo&quot;, &quot;Sprint 1: base, usuarios y permisos&quot;,  7,  8, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: 1.0, &quot;devops&quot;: .5}),
+ (&quot;F3 Desarrollo&quot;, &quot;Sprint 2: fincas, parcelas y mapa&quot;,    9, 10, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: 1.0, &quot;qa&quot;: .5}),
+ (&quot;F3 Desarrollo&quot;, &quot;Sprint 3: lotes y modo sin internet&quot;, 11, 12, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: 1.0, &quot;qa&quot;: .5}),
+ (&quot;F3 Desarrollo&quot;, &quot;Sprint 4: acopio, QR y documentos&quot;,   13, 14, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: 1.0, &quot;qa&quot;: .5}),
+ (&quot;F3 Desarrollo&quot;, &quot;Sprint 5: paquete para exportador&quot;,   15, 16, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: 1.0, &quot;qa&quot;: 1.0}),
+ (&quot;F4 Pruebas&quot;, &quot;Pruebas integrales y corrección&quot;,        17, 18, {&quot;gerente&quot;: .5, &quot;backend&quot;: 1.0, &quot;movil&quot;: 1.0, &quot;web&quot;: .5, &quot;qa&quot;: 1.0}),
+ (&quot;F4 Pruebas&quot;, &quot;Prueba de seguridad y de datos&quot;,         18, 18, {&quot;devops&quot;: 1.0}),
+ (&quot;F5 Piloto&quot;, &quot;Capacitar técnicos y productores&quot;,        19, 20, {&quot;gerente&quot;: .5, &quot;analista_ux&quot;: 1.0, &quot;campo&quot;: 1.0}),
+ (&quot;F5 Piloto&quot;, &quot;Piloto con 300 caficultores&quot;,             19, 22, {&quot;gerente&quot;: .5, &quot;backend&quot;: .5, &quot;movil&quot;: .5, &quot;qa&quot;: .5, &quot;campo&quot;: 2.0}),
+ (&quot;F6 Cierre&quot;, &quot;Salida a producción y manuales&quot;,          23, 23, {&quot;backend&quot;: 1.0, &quot;devops&quot;: 1.0, &quot;qa&quot;: .5}),
+ (&quot;F6 Cierre&quot;, &quot;Entrega, lecciones y cierre&quot;,             23, 24, {&quot;gerente&quot;: 1.0, &quot;analista_ux&quot;: .5}),
+]
+
+# (rubro, concepto, valor, fase)
+otros_costos = [
+ (&quot;Hardware&quot;, &quot;4 portátiles de desarrollo&quot;, 15_200_000, &quot;F1 Inicio&quot;),
+ (&quot;Hardware&quot;, &quot;6 celulares Android para campo&quot;, 5_100_000, &quot;F5 Piloto&quot;),
+ (&quot;Hardware&quot;, &quot;2 GPS de mano&quot;, 3_200_000, &quot;F2 Análisis y diseño&quot;),
+ (&quot;Software&quot;, &quot;Nube para desarrollo y pruebas&quot;, 4_000_000, &quot;F3 Desarrollo&quot;),
+ (&quot;Software&quot;, &quot;Nube para el piloto&quot;, 3_000_000, &quot;F5 Piloto&quot;),
+ (&quot;Software&quot;, &quot;Licencias de diseño y gestión&quot;, 1_800_000, &quot;F2 Análisis y diseño&quot;),
+ (&quot;Software&quot;, &quot;Mapas sin conexión&quot;, 1_200_000, &quot;F3 Desarrollo&quot;),
+ (&quot;Software&quot;, &quot;Cuenta de Google Play&quot;, 100_000, &quot;F6 Cierre&quot;),
+ (&quot;Comunicaciones&quot;, &quot;Planes de datos, 6 líneas por 5 meses&quot;, 1_950_000, &quot;F5 Piloto&quot;),
+ (&quot;Comunicaciones&quot;, &quot;Internet y videollamadas del equipo&quot;, 2_100_000, &quot;F3 Desarrollo&quot;),
+ (&quot;Comunicaciones&quot;, &quot;Mensajes de aviso a productores&quot;, 1_000_000, &quot;F5 Piloto&quot;),
+ (&quot;Recursos físicos&quot;, &quot;Puestos de coworking por 6 meses&quot;, 14_400_000, &quot;F3 Desarrollo&quot;),
+ (&quot;Recursos físicos&quot;, &quot;Visita de campo para requisitos&quot;, 2_500_000, &quot;F2 Análisis y diseño&quot;),
+ (&quot;Recursos físicos&quot;, &quot;3 visitas de campo en el piloto&quot;, 7_500_000, &quot;F5 Piloto&quot;),
+ (&quot;Recursos físicos&quot;, &quot;2 impresoras y etiquetas QR&quot;, 3_000_000, &quot;F5 Piloto&quot;),
+ (&quot;Administrativos y legales&quot;, &quot;Abogado de datos personales&quot;, 6_000_000, &quot;F2 Análisis y diseño&quot;),
+ (&quot;Administrativos y legales&quot;, &quot;Contador por 6 meses&quot;, 3_000_000, &quot;F6 Cierre&quot;),
+ (&quot;Administrativos y legales&quot;, &quot;Pólizas y contratos&quot;, 2_500_000, &quot;F1 Inicio&quot;),
+ (&quot;Administrativos y legales&quot;, &quot;Prueba de seguridad externa&quot;, 7_000_000, &quot;F4 Pruebas&quot;),
+ (&quot;Mercadeo&quot;, &quot;3 talleres de socialización&quot;, 4_500_000, &quot;F5 Piloto&quot;),
+ (&quot;Mercadeo&quot;, &quot;Piezas y material para productores&quot;, 1_500_000, &quot;F5 Piloto&quot;),
+]
+IMPREVISTOS = 0.10
+
+fases, rubros = {}, {&quot;Recursos humanos&quot;: 0}
+for fase, _, ini, fin, roles in actividades:
+    semanas = fin - ini + 1
+    costo = sum(semanas * ded * costo_semana(r) for r, ded in roles.items())
+    fases[fase] = fases.get(fase, 0) + costo
+    rubros[&quot;Recursos humanos&quot;] += costo
+
+for rubro, _, valor, fase in otros_costos:
+    fases[fase] = fases.get(fase, 0) + valor
+    rubros[rubro] = rubros.get(rubro, 0) + valor
+
+subtotal = sum(rubros.values())
+rubros[&quot;Imprevistos (10 %)&quot;] = subtotal * IMPREVISTOS
+fases = {f: c * (1 + IMPREVISTOS) for f, c in fases.items()}
+total = subtotal * (1 + IMPREVISTOS)
+
+if __name__ == &quot;__main__&quot;:
+    for fase, costo in fases.items():
+        print(f&quot;{fase:24} ${costo:&gt;13,.0f}  {costo/total:5.1%}&quot;)
+    print(f&quot;{&#x27;TOTAL&#x27;:24} ${total:&gt;13,.0f}&quot;)
+</code></pre></details>
+  <p class="src">Los valores de equipos, nube y servicios son estimaciones mías para este ejercicio. En un proyecto real habría que cotizarlos.</p>
+</section>
+
+<section id="conclusiones">
+  <div class="sh"><span class="num">8 de 8</span><h2>Conclusiones y recomendaciones</h2></div>
+  <p>Mi conclusión es que el proyecto es viable, pero solo si alguien distinto al caficultor lo financia. La parte técnica no es la más difícil. Lo difícil es conseguir la plata y que los exportadores lo adopten.</p>
+  <div class="verdict">
+    <div><span class="lo">VIABLE</span><b>Técnica</b>La tecnología ya existe y el reto está en trabajar sin señal.</div>
+    <div><span class="lo">VIABLE</span><b>Legal</b>Es posible cumplir con autorización y manejo cuidadoso de datos.</div>
+    <div><span class="me">VIABLE CON AJUSTES</span><b>Operativa</b>Depende de los técnicos de campo y de la fecha de cosecha.</div>
+    <div><span class="hi">CONDICIONADA</span><b>Económica</b>Necesita financiación inicial y crecer a más asociaciones.</div>
+  </div>
+  <div class="two">
+    <div class="note">
+      <h3>Cuenta rápida de sostenibilidad</h3>
+      <p>Si la inversión se recupera en 3 años y la operación cuesta unos $70 millones al año (valor estimado), el proyecto necesita cerca de $161 millones anuales.</p>
+      <p>Con 40 asociaciones de 300 productores, eso da $335.000 al mes por asociación. Equivale a unos $13.400 por productor al año, cerca del 0,6 % de una carga de café, que en abril de 2026 promedió $2.229.900 (Federación Nacional de Cafeteros, 2026).</p>
+      <p>Con una sola asociación no se paga. El proyecto tiene sentido como servicio compartido.</p>
+    </div>
+    <div class="stack">
+      <h3>Recomendaciones</h3>
+      <ul>
+        <li>Conseguir la financiación antes de iniciar, con un exportador o cooperación internacional.</li>
+        <li>Pedir los datos a SICA con autorización del caficultor en vez de volver a georreferenciar.</li>
+        <li>Centrar la primera versión en el acopio y el control de mezcla.</li>
+        <li>Que el costo no lo pague el caficultor.</li>
+        <li>Confirmar el calendario de cosecha antes de fijar el piloto.</li>
+        <li>Si el dinero no alcanza, recortar primero el panel web y dejar el acopio y el paquete de datos.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="two">
+    <div class="note"><h3>Ventajas del proyecto</h3><ul><li>Ayuda a la asociación a seguir vendiendo a Europa.</li><li>Une la parcela con el acopio, donde se puede perder el rastro del café.</li><li>Funciona sin señal en la finca.</li><li>Reduce el trabajo manual de cuadernos y Excel.</li></ul></div>
+    <div class="note"><h3>Desventajas del proyecto</h3><ul><li>Su costo es alto para una sola asociación.</li><li>Depende de que los exportadores lo usen.</li><li>Maneja datos personales y exige mucho cuidado legal.</li><li>Necesita técnicos en campo para funcionar bien.</li></ul></div>
+  </div>
+  <div class="stack">
+    <h3>Qué me dejó la actividad</h3>
+    <p>Hacer este ejercicio me mostró que el objetivo, el alcance, el tiempo, los riesgos y el costo dependen unos de otros. Si cambio una semana en el Gantt, cambia el presupuesto. Si amplío el alcance, cambian el tiempo y los riesgos. También vi que investigar primero cambió la idea: empecé pensando en georreferenciar fincas, y al ver que SICA ya lo hace moví el proyecto al punto de acopio.</p>
+  </div>
+  <div class="note">
+    <h3>Video para ampliar</h3>
+    <p>En la página de recursos del Acuerdo Café, Bosque y Clima está el video “Puentes para el cumplimiento”, un diálogo entre empresas y la UE sobre el EUDR en Colombia (Acuerdo Café, Bosque y Clima, s. f.). <a href="https://acuerdocafebosqueyclima.com/recursos/" rel="noopener">Abrir recursos y videos</a></p>
+  </div>
+</section>
+
+<section id="referencias">
+  <div class="sh"><h2>Referencias</h2></div>
+  <div class="refs">
+  <p>Acuerdo Café, Bosque y Clima. (s. f.). <i>Recursos</i>. https://acuerdocafebosqueyclima.com/recursos/</p>
+  <p>AGRINFO. (s. f.). <i>Revisión del Reglamento de la UE sobre deforestación: simplificación</i>. https://agrinfo.eu/book-of-reports/review-of-eu-deforestation-regulation-simplification/translate/es</p>
+  <p>Agrolatam. (2026). <i>El dólar golpea al café colombiano: cada carga ya perdió hasta $700.000 en un año</i>. https://www.agrolatam.com/mercados-922/dolar-cafe-colombiano-rentabilidad-produccion-2026/</p>
+  <p>Buk. (2026). <i>Costo real de un empleado en Colombia 2026</i>. https://www.buk.co/blog/costo-real-de-un-empleado-en-colombia-2026</p>
+  <p>Comisión Europea. (2026, 13 de julio). <i>Commission publishes simplification review of EU Deforestation Regulation</i>. https://transition-pathways.europa.eu/textiles/legislative-developments/commission-publishes-simplification-review-eu-deforestation</p>
+  <p>Congreso de Colombia. (2012). <i>Ley Estatutaria 1581 de 2012</i>. Diario Oficial 48587. https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981</p>
+  <p>Consultor Salud. (2025). <i>Aumento del salario mínimo en Colombia 2026: decretos 1469 y 1470 de 2025</i>. https://consultorsalud.com/aumento-del-salario-minimo-en-colombia-2026/</p>
+  <p>Diario del Sur. (2026, 10 de octubre). <i>Federación Nacional de Cafeteros reporta caída del 15% en la producción anual</i>. https://www.diariodelsur.com.co/noticias/federacion-nacional-de-cafeteros-reporta-caida-del-15-en-la-produccion-anual</p>
+  <p>DPL News. (2026). <i>74% de hogares en Colombia ya tiene acceso a Internet</i>. https://dplnews.com/74-de-hogares-en-colombia-ya-tiene-acceso-a-internet/</p>
+  <p>El Colombiano. (2024, 22 de agosto). <i>Café de Colombia se adapta a normas sobre deforestación</i>. https://www.elcolombiano.com/negocios/agro/cafe-de-colombia-se-adapta-a-normas-sobre-deforestacion-ED25264473</p>
+  <p>Federación Nacional de Cafeteros. (2026). <i>Reporte mensual FEPCafé, mayo de 2026</i>. https://federaciondecafeteros.org/wp-content/uploads/2026/06/5.-Reporte-Mensual_Mayo26_FEPCafé.pdf</p>
+  <p>Gaviria Botero, M. (2025, 21 de enero). <i>Avances EUDR sector cafetero colombiano</i> [Presentación]. Federación Nacional de Cafeteros. https://eudrcentralamerica.thecosa.org/wp-content/uploads/2025/09/2025_01_21_PPT-CdA-CA.pdf</p>
+  <p>Indeed. (2026). <i>Sueldos de desarrollador/a junior en Colombia</i>. https://co.indeed.com/career/junior-developer/salaries</p>
+  <p>Ministerio de Comercio, Industria y Turismo. (2025, 7 de octubre). <i>Colombia presentó informe con avances en trazabilidad y sostenibilidad en café, cacao y aceite de palma ante la Comisión Europea</i>. https://www.mincit.gov.co/prensa/noticias/comercio/informe-deforestacion-europa-cafe-colombia-2025</p>
+  <p>Parlamento Europeo y Consejo de la Unión Europea. (2023). <i>Reglamento (UE) 2023/1115 relativo a la comercialización en el mercado de la Unión y a la exportación desde la Unión de determinadas materias primas y productos asociados a la deforestación y la degradación forestal</i>. Diario Oficial de la Unión Europea.</p>
+  <p>Portafolio. (2025). <i>UE exime a Latinoamérica de su lista contra las exportaciones que generan deforestación</i>. https://www.portafolio.co/sostenibilidad/ue-exime-a-latinoamerica-de-su-lista-contra-las-exportaciones-que-generan-deforestacion-631042</p>
+  <p>Preferred by Nature. (2025). <i>Guía práctica para organizaciones de pequeños productores de café en Colombia: apoyo en el proceso de alineamiento con el Reglamento de la Unión Europea sobre productos libres de deforestación (EUDR)</i>. GIZ. https://www.giz.de/sites/default/files/media/els-document/2026-06/gui-uea-sdd-eudr-para-productores-libres-de-deforestacio-uen_0.pdf</p>
+  </div>
+</section>
+</main>
+<footer class="wrap">Diego Alejandro Astudillo Rojas · Proyecto académico. TrazaGrano, la asociación del piloto y las cifras del presupuesto son un ejercicio de formulación.</footer>
+<script>(function(){
+var FASES=[{"k": "f1", "n": "F1 Inicio", "s": "Semana 1 a 3", "c": "$30.813.877", "a": 2}, {"k": "f2", "n": "F2 Análisis y diseño", "s": "Semana 3 a 6", "c": "$40.547.354", "a": 3}, {"k": "f3", "n": "F3 Desarrollo", "s": "Semana 7 a 16", "c": "$98.917.077", "a": 5}, {"k": "f4", "n": "F4 Pruebas", "s": "Semana 17 a 18", "c": "$24.175.631", "a": 2}, {"k": "f5", "n": "F5 Piloto", "s": "Semana 19 a 22", "c": "$62.716.077", "a": 2}, {"k": "f6", "n": "F6 Cierre", "s": "Semana 23 a 24", "c": "$15.371.231", "a": 2}];
+var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var cop=function(n){return '$'+Math.round(n).toLocaleString('es-CO')};
+
+/* granos del encabezado */
+var cv=$('#beans'),ctx=cv.getContext('2d'),hero=$('.hero'),B=[],mx=-999,my=-999,dpr=Math.min(devicePixelRatio||1,2);
+function size(){cv.width=hero.clientWidth*dpr;cv.height=hero.clientHeight*dpr;}
+function seed(){B=[];var w=hero.clientWidth,h=hero.clientHeight,n=Math.round(w/34)+8;
+ for(var i=0;i<n;i++)B.push({x:Math.random()*w,y:Math.random()*h,r:9+Math.random()*17,a:Math.random()*6.3,va:(Math.random()-.5)*.012,vy:.15+Math.random()*.4,dx:0,dy:0,c:i%7==0?'#f4304f':i%4==0?'#ffc21f':'#0f4a37'});}
+function bean(b){ctx.save();ctx.globalAlpha=.55;ctx.translate(b.x+b.dx,b.y+b.dy);ctx.rotate(b.a);ctx.fillStyle=b.c;ctx.beginPath();ctx.ellipse(0,0,b.r,b.r*.68,0,0,6.3);ctx.fill();
+ ctx.strokeStyle='#062d21';ctx.lineWidth=b.r*.13;ctx.beginPath();ctx.moveTo(-b.r*.9,0);ctx.bezierCurveTo(-b.r*.3,-b.r*.4,b.r*.3,b.r*.4,b.r*.9,0);ctx.stroke();ctx.restore();}
+function draw(){var h=hero.clientHeight;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,hero.clientWidth,h);
+ B.forEach(function(b){if(!calm){b.y+=b.vy;b.a+=b.va;if(b.y>h+30)b.y=-30;
+  var ex=b.x-mx,ey=b.y-my,d=Math.hypot(ex,ey);var tx=0,ty=0;if(d<130){var f=(130-d)*.45;tx=ex/d*f;ty=ey/d*f;}b.dx+=(tx-b.dx)*.08;b.dy+=(ty-b.dy)*.08;}
+  bean(b);});
+ if(!calm&&!document.hidden)requestAnimationFrame(draw);}
+size();seed();draw();
+addEventListener('resize',function(){size();seed();if(calm)draw();});
+document.addEventListener('visibilitychange',function(){if(!calm&&!document.hidden)requestAnimationFrame(draw);});
+hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+hero.addEventListener('pointerleave',function(){mx=my=-999;});
+
+/* contadores */
+if(!calm)$$('[data-count]').forEach(function(el){var t=+el.dataset.count,d=+(el.dataset.dec||0),t0=performance.now();
+ (function run(n){var k=Math.min((n-t0)/1200,1),e=1-Math.pow(1-k,3);el.textContent=(t*e).toFixed(d).replace('.',',');if(k<1)requestAnimationFrame(run);})(t0);});
+
+/* aparecer al bajar: los elementos siempre son visibles, solo se mueven */
+if(!calm&&'IntersectionObserver' in window){
+ var vh=innerHeight,io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre-up','pre');io.unobserve(e.target);}});},{threshold:.08});
+ $$('.note,.verdict>div,.stack,.sim,.rtool,.flow').forEach(function(el,i){if(el.getBoundingClientRect().top>vh){el.classList.add('up','pre-up');io.observe(el);}});
+ $$('.gantt').concat($$('.brow').map(function(b){return b.parentNode})).forEach(function(el){if(el.getBoundingClientRect().top>vh){el.classList.add('pre');io.observe(el);}});
+ $$('.gantt .bar').forEach(function(b,i){b.style.transitionDelay=(i*25)+'ms';});
+}
+
+/* progreso y menú */
+var prog=$('#prog'),links=$$('nav a'),secs=links.map(function(a){return $(a.getAttribute('href'))});
+function onS(){var d=document.documentElement,m=d.scrollHeight-innerHeight;prog.style.transform='scaleX('+(m>0?scrollY/m:0)+')';
+ var cur=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<140)cur=i;});
+ links.forEach(function(a,i){var on=i===cur&&scrollY>200;a.classList.toggle('on',on);if(on&&a.dataset.was!=='1'){a.parentNode.scrollTo({left:a.offsetLeft-40,behavior:'auto'});}a.dataset.was=on?'1':'0';});}
+addEventListener('scroll',onS,{passive:true});onS();
+
+/* Gantt por fase */
+var box=$('#fbox'),g=$('.gantt');
+$$('#fchips .chip').forEach(function(c){c.addEventListener('click',function(){var f=c.dataset.f;
+ $$('#fchips .chip').forEach(function(x){x.classList.toggle('on',x===c);});
+ g.classList.toggle('sel',f!=='all');$$('.bar',g).forEach(function(b){b.style.transitionDelay='0ms';b.classList.toggle('on',b.dataset.f===f);});
+ var d=FASES.filter(function(x){return x.k===f})[0];
+ box.innerHTML=d?'<b>'+d.n+'</b><span>'+d.s+' · '+d.a+' actividades · '+d.c+'</span>':'<b>24 semanas · 16 actividades</b><span>Toca una fase para ver sus semanas y su costo.</span>';});});
+
+/* riesgos */
+$$('#rchips .chip').forEach(function(c){c.addEventListener('click',function(){var l=c.dataset.l;
+ $$('#rchips .chip').forEach(function(x){x.classList.toggle('on',x===c);});
+ $$('tr[data-l]').forEach(function(r){r.hidden=l!=='all'&&r.dataset.l!==l;});});});
+
+/* simulador */
+var imp=$('#imp');imp.addEventListener('input',function(){var s=+imp.dataset.sub,v=+imp.value;$('#impv').textContent=v+' %';$('#impc').textContent=cop(s*v/100);$('#impt').textContent=cop(s*(1+v/100));});
+
+/* copiar código */
+$$('pre').forEach(function(p){var w=document.createElement('div');w.className='cw';p.parentNode.insertBefore(w,p);w.appendChild(p);
+ var b=document.createElement('button');b.className='copy';b.type='button';b.textContent='Copiar';w.appendChild(b);
+ b.addEventListener('click',function(){var done=function(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1400)};
+  var sel=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado';};
+  try{navigator.clipboard.writeText(p.textContent).then(done,sel)}catch(e){sel()}});});
+
+/* pantalla de la app */
+if(!calm){var t=$('#synct'),bar=$('#syncb'),st=0;setInterval(function(){st=(st+1)%3;
+ if(st===1){t.textContent='Señal encontrada · sincronizando 3 registros';bar.style.transform='scaleX(1)';}
+ else if(st===2){t.textContent='Todo sincronizado · lote guardado';}
+ else{t.textContent='Sin señal · 3 registros por sincronizar';bar.style.transition='none';bar.style.transform='scaleX(0)';setTimeout(function(){bar.style.transition='';},60);}},2600);}
+})();
+</script>
+</body>
+</html>
